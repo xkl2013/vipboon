@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 
-const danceRoute=require('./src/routes/dance_video.server.route');
+const routeMap=require('./route');
 
 
 var app = express();
@@ -32,7 +32,7 @@ app.all('*', function (req, res, next) {
   res.header('Content-Type', 'application/json;charset=utf-8');
   next();
 });
-app.use('/dance', danceRoute);
+app.use('/', routeMap);
 
 
 
